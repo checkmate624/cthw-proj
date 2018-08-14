@@ -1,6 +1,6 @@
 # Chapter 11 - Arrays and Strings
 
-Create program that uses an array to decide what to do next.
+Create a program that uses an array to decide what to do next.
 
 ## Guidelines
 * Make an array of signed 8-bit integers (int8_t type), with at least 10 entries.
