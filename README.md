@@ -18,4 +18,4 @@ You should do all of the exercises in the book, but you can organize them in any
 * 10 pts - Compile without warnings
 * 10 pts - Appropriate use of comments
 
-The points above are cumulative, so for example, a well commented project that has a makefile and compiles without warnings, but makes no attempt to solve the problem is worth 60 points.  Note that it is possible to get over 100 points on a project.
+The points above are cumulative, so for example, a well commented project that has a makefile and compiles without warnings, but makes no attempt to solve the problem is worth 60 points.  Note that it is possible to get over 100 points on a project.  There are no projects for the first few chapters of the book, but you still need to read those chapters and work through the exercises independently.
