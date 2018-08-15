@@ -20,3 +20,13 @@ Write a program that itself writes a C program that prints out the current year 
 * Hello, 2018! *
 ****************
 </pre>
+
+* To be sure you get the full 10 points for a program that doesn't make compiler warnings, use these gcc flags in your Makefile:
+  * -Wall : this will show most warnings
+  * -Wextra : use this also to get some more useful warnings
+  * -Werror : this will make *sure* you don't ignore warnings, because they will count as errors, and your program won't compile
+  * All together, a basic Makefile with all of those options would look like this:
+<pre>
+main: main.c
+  gcc -Wall -Wextra -Werror main.c -o main
+</pre>
