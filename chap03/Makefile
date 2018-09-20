@@ -1,5 +1,5 @@
 main: main.c
-	gcc -Wall -Wextra -Werror main.c -o main
+	gcc -Wall -g -Wextra -Werror main.c -o main
 
 generated: generated.c
 	gcc -Wall -Wextra -Werror generated.c -o generated
