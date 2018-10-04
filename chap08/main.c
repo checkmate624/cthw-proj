@@ -19,7 +19,7 @@ int main()
 	//Get last digit of random number
 	int lastDigitOfRandom = randomNumber % 10;
 
-	//Print random item of the *words array
+	//Print random item of the words array
 	printf("%s\n", words[lastDigitOfRandom]);
 
 	return 0;
