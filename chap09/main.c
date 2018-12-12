@@ -4,7 +4,6 @@
 
 int main()
 {
-	//Seed for random number
 	srand(time(0));
 	
 	//Set these to change the render
@@ -16,9 +15,8 @@ int main()
 	int randomNumber;
 	int finalNumber;
 
-	//Define symbols to be drawn
 	char *symbols[] = {
-		" ", "+", "*",
+		" ", "+", "*", "\0"
 	};
 	
 	//Draw rows
@@ -33,7 +31,7 @@ int main()
 			randomNumber = rand();
 
 			//Limit random number to 0-2
-			finalNumber = (randomNumber % 10) / 3.1;
+			finalNumber = (randomNumber % 3);
 
 			printf("%s", symbols[finalNumber]);
 			columnsDrawn++;
