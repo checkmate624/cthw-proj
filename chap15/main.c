@@ -1,20 +1,28 @@
 #include <stdio.h>
 
-int main(int argc, char *argv[])
+void print_address_and_value(int *var)
 {
-	int ages[] = { 23, 43, 12, 89, 2 };
-	char *names[] = {
-		"Alan", "Frank", "Mary", "John", "Lisa"
-	};
+	printf("%p:%d\n", &var, *var);
+}
 
-	int count = sizeof(ages) / sizeof(int);
+int main()
+{
+	int var = 10;
+	int array[] = { 1, 2, 3 };
+	int var2 = 20;
 	int i = 0;
+	
+	//Pass the address of the variable
+	print_address_and_value(&var);
 
-	for (i = 0; i < count; i++) {
-		printf("%s has been alive %d years \n", names[i], ages[i]);
+	//Print every item in the array
+	for(i = 0; i <= 2; i++)
+	{
+		print_address_and_value(&array[i]);
 	}
 
-	printf("---\n");
-		
+	print_address_and_value(&var2);
+	
 	return 0;
 }
+
