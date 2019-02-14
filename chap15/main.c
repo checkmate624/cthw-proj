@@ -2,7 +2,7 @@
 
 void print_address_and_value(int *var)
 {
-	printf("%p:%d\n", &var, *var);
+	printf("%p:%d\n", &*var, *var);
 }
 
 int main()

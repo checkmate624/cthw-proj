@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 int steps = 0;
 double value = 0;
@@ -8,7 +9,8 @@ double precision = .001;
 
 double generate_number()
 {
-	return rand() % 1000;
+	//return rand() % 1000;
+	return 148.00;
 }
 
 double find_square_root(double num, double precision)
@@ -20,10 +22,13 @@ double find_square_root(double num, double precision)
 		value = num / 2;
 
 		//While the difference is larger than the allotted value
-		while(abs((value*value) - num) > precision)
+		while(fabs((value*value) - num) > precision)
 		{
 			value = (value + (num / value)) / 2;
 			steps++;
+			printf("Squared: %lf\n", value * value);
+			printf("Difference: %lf\n", (value * value) - num);
+
 		}
 
 		printf("It took %i steps to find\n", steps);
@@ -40,7 +45,7 @@ int main(int argc, char *argv[])
 {
 	srand(time(0));
 
-	printf("The square root is %f\n", find_square_root(generate_number(), precision));
+	printf("The square root is %lf\n", find_square_root(generate_number(), precision));
 
 	return 0;
 }
