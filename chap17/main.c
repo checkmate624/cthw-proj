@@ -13,7 +13,7 @@ typedef struct {
 static char *copy_string(char *s)
 {
 	if (s == NULL) {
-		return "";
+		return strdup("");
 	} else {
 		return strdup(s);
 	}
@@ -42,7 +42,8 @@ static Address *make_address(char *line_1, char *line_2, char *city, char *state
 	a = calloc(1, sizeof(Address));
 	if (a) {
 		a->line_1 = copy_string(line_1);
-		a->line_1 = copy_string(line_2);
+		//FIX: changed from a->line_1 to a->line_2
+		a->line_2 = copy_string(line_2);
 		a->city = copy_string(city);
 		copy_into_string(a->state, state, sizeof(a->state));
 		copy_into_string(a->zip, zip, sizeof(a->zip));
@@ -56,8 +57,7 @@ static void free_address(Address *a)
 {
 	free(a->line_1);
 	free(a->line_2);
-	free(a->state);
-	free(a->zip);
+	free(a->city);
 	free(a);
 }
 
@@ -84,8 +84,8 @@ int main()
 
 	summer_home = make_address("588 Lake Avenue", NULL, "Eagle River", "WI", "54521");
 	if (summer_home) {
-		free_address(summer_home);
 		print_address(summer_home);
+		free_address(summer_home);
 	}
 
 	return 0;

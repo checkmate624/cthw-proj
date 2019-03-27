@@ -2,35 +2,62 @@
 #include <stdlib.h>
 #include <string.h>
 
-char **add_string(char **array,  char *string, int totalStrings)
+char **add_string(int totalNames, char **array,  char *string)
 {
-	array = realloc(array, (totalStrings + 1) * sizeof(char*));
-	array[totalStrings] = string;
+	array = realloc(array, (totalNames + 1) * sizeof(char*));
+	array[totalNames] = string;
 	return array;
+}
+
+void ListNames(int totalNames, char **firstNames, char **lastNames)
+{
+	if(totalNames == 0) {
+		printf("No records currently stored.\n");
+		return;
+	 }
+	int i = 0;
+	for(i = 0; i < totalNames; i++) {
+		printf("(%d) %s %s\n", (i + 1), firstNames[i], lastNames[i]);
+	}
+	printf("\n");
 }
 
 int main ()
 {
 	char **firstNames = NULL;
-	int totalNames = 0;
+	char **lastNames = NULL;
 	char *newName = NULL;
+	int totalNames = 0;	
 
 	while(1) {
-		printf("Enter first name or type quit ot exit: ");
+		printf("Enter first name, type 'l' to List, or 'e' to Exit: ");
 		scanf("%ms", &newName);
-		printf("%zu\n", strlen(newName));
-		printf("%s\n", newName);
-		if(strcmp(newName, "quit") == 0) {
+
+		// Proccess Input
+		if(strcmp(newName, "e") == 0) {
 			break;
-		}
+		} else if (strcmp(newName, "l") == 0) {
+			ListNames(totalNames, firstNames, lastNames);
+		} else {
+			// Add first name
+			firstNames = add_string(totalNames, firstNames, newName);
+			printf("Added '%s'\n", firstNames[totalNames]);
 
-		printf("%p\n", firstNames);
-		firstNames = add_string(firstNames, newName, totalNames);
-		printf("%p\n", firstNames);		
+			// Add last Name
+			printf("Enter last name: ");
+			scanf("%ms", &newName);
+			lastNames = add_string(totalNames, lastNames, newName);
+			printf("Added '%s'\n", lastNames[totalNames]);
 
-		printf("Added '%s'\n", firstNames[totalNames]);
-		totalNames += 1;
-		printf("Now storing (%d) records.\n", totalNames);	
+			totalNames += 1;
+
+			// Print total records
+			if(totalNames == 1) {
+				printf("Now storing (1) record.\n\n");
+			} else {	
+				printf("Now storing (%d) records.\n\n", totalNames);
+			}
+		}	
 	}
 	
    
