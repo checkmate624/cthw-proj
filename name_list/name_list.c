@@ -11,12 +11,12 @@ char **add_string(int totalNames, char **array,  char *string)
 
 void ListNames(int totalNames, char **firstNames, char **lastNames)
 {
-	if(totalNames == 0) {
+	if (totalNames == 0) {
 		printf("No records currently stored.\n");
 		return;
 	 }
-	int i = 0;
-	for(i = 0; i < totalNames; i++) {
+
+	for (int i = 0; i < totalNames; i++) {
 		printf("(%d) %s %s\n", (i + 1), firstNames[i], lastNames[i]);
 	}
 	printf("\n");
@@ -29,12 +29,21 @@ int main ()
 	char *newName = NULL;
 	int totalNames = 0;	
 
-	while(1) {
+	while (1) {
 		printf("Enter first name, type 'l' to List, or 'e' to Exit: ");
 		scanf("%ms", &newName);
 
 		// Proccess Input
-		if(strcmp(newName, "e") == 0) {
+		if (strcmp(newName, "e") == 0) {
+			// Free everything
+			for(int i =0; i < totalNames; i++) {
+				free(firstNames[i]);
+				free(lastNames[i]);
+			}
+
+			free(firstNames);
+			free(lastNames);
+			free(newName);
 			break;
 		} else if (strcmp(newName, "l") == 0) {
 			ListNames(totalNames, firstNames, lastNames);
@@ -52,14 +61,12 @@ int main ()
 			totalNames += 1;
 
 			// Print total records
-			if(totalNames == 1) {
+			if (totalNames == 1) {
 				printf("Now storing (1) record.\n\n");
 			} else {	
 				printf("Now storing (%d) records.\n\n", totalNames);
 			}
 		}	
 	}
-	
-   
 	return(0);
 }
