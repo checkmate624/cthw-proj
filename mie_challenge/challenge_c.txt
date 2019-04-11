@@ -1,0 +1,45 @@
+Goal
+----
+ 
+Develop a program written in C that will handle decoding of a CGI query string.
+
+Requirements
+------------
+
+1. Do the necessary research to determine which characters need to be decoded,
+   and how that decoding is to be done.  Web based CGI data is encoded and
+   stored as an ASCII string in the form:  var=something&var2=something
+   You can see an example of this by visiting http://stackoverflow.com, entering
+   a search, and seeing how the URL changes after you submit the page.
+
+2. Your program should run from a command line interface in Linux (preferably)
+   or DOS.  It should accept as a command line argument a string to decode.
+
+3. Decode the query string, and for every key/value pair found, display the
+   decoded key and value.
+
+4. Do not link in or use any code except what can be found in the standard
+   libraries.
+
+5. Divide your code into a driver and a reusable CGI API.  The CGI API should
+   do the parsing and decoding, provide functionality for retrieving specific
+   values by their keys, and make it possible to retrieve all keys found.
+
+6. The decoding process should have no hard-coded assumptions about the number
+   or maximum sizes of keys and values.
+
+7. Make detailed comments for every single function you write. Be prepared to
+   defend and explain your design and how the different parts of your program
+   work together.
+
+
+Test Query Strings
+------------------
+
+You can test your program using these sample query strings:
+
+q=c+programming
+x=100&y=200
+r=Avoid%20%3Cb%3E%22bold%22%3C%2Fb%3E%20tags.&v=A%2BB%3DB%2BA&z=A%26B
+greeting=vavlI'%20quv%20Say'moHmeH%20nuj%20bIQ%20vIlo'chugh%2C%20nuj%20bIQ%20vIlammoH.
+Keys%2CShifted=!%40%23%24%25%5E%26*()_%2B
