@@ -3,7 +3,14 @@
 
 int main(int argc, char *argv[])
 {
-	PrintHello();
+	CGI *cgi = NULL;
+
+	if(argc < 2) {
+		return 1;
+	}
+
+	cgi = ParseString(argv[1]);
+	CleanCGI(cgi);
 
 	return 0;
 }
