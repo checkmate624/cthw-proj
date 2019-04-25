@@ -14,6 +14,8 @@ typedef struct {
 	int pairCount;
 } CGI;
 
+char HexToChar(char input[3]);
+
 CGI *ParseString(char *input);
 
 void CleanCGI(CGI *cgi);
