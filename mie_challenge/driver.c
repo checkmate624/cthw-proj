@@ -10,10 +10,14 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 
-	printf("%c\n", HexToChar("%6a"));
+	cgi = ParseString(argv[1]);
 
-	/*cgi = ParseString(argv[1]);
-	CleanCGI(cgi);*/
+	int i = 0;
+	for (i = 0; i < GetTotalPairs(cgi); i++) {
+		PrintPair(GetPairByNumber(cgi, i));
+	}
+
+	CleanCGI(cgi);
 
 	return 0;
 }
