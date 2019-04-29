@@ -4,6 +4,7 @@
 int main(int argc, char *argv[])
 {
 	CGI *cgi = NULL;
+	int i = 0;
 
 	if(argc < 2) {
 		printf("FAIL: Too few arguments passed.\n");
@@ -11,9 +12,9 @@ int main(int argc, char *argv[])
 	}
 
 	cgi = ParseString(argv[1]);
-
-	int i = 0;
-	for (i = 0; i < GetTotalPairs(cgi); i++) {
+	int totalPairs = GetTotalPairs(cgi);
+	
+	for (i = 0; i < totalPairs; i++) {
 		PrintPair(GetPairByNumber(cgi, i));
 	}
 
